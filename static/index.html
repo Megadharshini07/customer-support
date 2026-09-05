@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Ticket Resolution Assistant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --ink: #1a2144;
+    --blue: #2b6de0;
+    --orange: #f07d24;
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --border: #e3e6ef;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header {
+    background: var(--ink);
+    color: white;
+    padding: 20px 28px;
+  }
+  header h1 { margin: 0; font-size: 20px; }
+  header p { margin: 4px 0 0; color: #b9c0e0; font-size: 13px; }
+  main {
+    max-width: 780px;
+    margin: 28px auto;
+    padding: 0 16px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+  }
+  button {
+    margin-top: 12px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.6; cursor: default; }
+  .examples { margin-top: 10px; font-size: 12px; }
+  .examples button {
+    background: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    font-weight: 400;
+    padding: 6px 10px;
+    margin: 4px 6px 0 0;
+  }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #7a80a0; font-weight: 700; margin-bottom: 6px;}
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .badge.escalate { background: #fde3d3; color: var(--orange); }
+  .badge.resolved { background: #dcecff; color: var(--blue); }
+  .cite {
+    display: inline-block;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin: 2px 4px 0 0;
+  }
+  .muted { color: #7a80a0; font-size: 13px; }
+  #error { color: #c0392b; font-size: 13px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ticket Resolution Assistant</h1>
+  <p>Customer Support track — NexusTiQ 24</p>
+</header>
+<main>
+  <div class="card">
+    <div class="label">Customer ticket</div>
+    <textarea id="ticket" placeholder="Paste or type a customer support ticket..."></textarea>
+    <div class="examples">
+      <button onclick="fillExample(0)">Defective item, 10 days old</button>
+      <button onclick="fillExample(1)">Package 12 days late</button>
+      <button onclick="fillExample(2)">Suspicious account access</button>
+      <button onclick="fillExample(3)">Unrelated question (null case)</button>
+    </div>
+    <div><button id="submitBtn" onclick="submitTicket()">Draft resolution</button></div>
+    <div id="error"></div>
+  </div>
+
+  <div id="result"></div>
+</main>
+
+<script>
+const examples = [
+  "I bought a blender 10 days ago and it arrived not working at all - won't power on. I'd like a refund.",
+  "My order was supposed to arrive 12 days ago and the tracking hasn't moved at all since it shipped. Where is it?",
+  "I think someone else logged into my account, there are orders I didn't place.",
+  "Do you sell this in stores near me in France?"
+];
+
+function fillExample(i) {
+  document.getElementById('ticket').value = examples[i];
+}
+
+async function submitTicket() {
+  const ticket = document.getElementById('ticket').value.trim();
+  const btn = document.getElementById('submitBtn');
+  const errorEl = document.getElementById('error');
+  const resultEl = document.getElementById('result');
+  errorEl.textContent = '';
+  resultEl.innerHTML = '';
+
+  if (!ticket) {
+    errorEl.textContent = 'Please enter a ticket.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Thinking...';
+
+  try {
+    const res = await fetch('/api/resolve', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ticket })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      errorEl.textContent = data.error || 'Something went wrong.';
+      return;
+    }
+
+    renderResult(data);
+  } catch (e) {
+    errorEl.textContent = 'Request failed: ' + e.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Draft resolution';
+  }
+}
+
+function renderResult(data) {
+  const badge = data.escalate
+    ? `<span class="badge escalate">Escalate → ${data.escalation_target || 'human review'}</span>`
+    : `<span class="badge resolved">Resolved directly</span>`;
+
+  const citations = (data.policy_citations || [])
+    .map(c => `<span class="cite">${c}</span>`).join('') || '<span class="muted">none</span>';
+
+  const sources = (data.retrieved_context || [])
+    .map(c => `<span class="cite">${c.doc} (${c.score.toFixed(2)})</span>`).join('');
+
+  document.getElementById('result').innerHTML = `
+    <div class="card">
+      <div class="label">Status</div>
+      ${badge}
+      ${data.confidence ? `<span class="muted"> &nbsp;confidence: ${data.confidence}</span>` : ''}
+
+      <div class="label" style="margin-top:16px;">What the customer reported</div>
+      <div>${data.customer_reported || ''}</div>
+
+      <div class="label" style="margin-top:16px;">Resolution draft</div>
+      <div>${data.resolution_draft || ''}</div>
+
+      <div class="label" style="margin-top:16px;">Policy citations</div>
+      <div>${citations}</div>
+
+      <div class="label" style="margin-top:16px;">Unknowns / unconfirmed</div>
+      <div class="muted">${data.unknowns || 'None'}</div>
+
+      <div class="label" style="margin-top:16px;">Retrieved sources (debug)</div>
+      <div>${sources}</div>
+    </div>
+  `;
+}
+</script>
+</body>
+</html>

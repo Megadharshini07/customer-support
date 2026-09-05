@@ -1,0 +1,97 @@
+[
+  {
+    "doc": "01_refunds_returns.md",
+    "chunk_id": "01_refunds_returns.md::chunk0",
+    "text": "# Policy: Refunds & Returns (POL-RR-01) 1. Standard items are eligible for a full refund within 30 days of delivery, provided the item is unused and in original packaging. 2. Perishable goods and digital downloads are non-refundable once delivered/accessed, except where the item was defective or materially not as described. 3. If a customer reports a defective item within 30 days, offer a free replacement OR a full refund, customer's choice. Do not require the customer to pay return shipping for defects. 4. If more than 30 days but less than 90 days have passed and the item is defective, escalate to a Tier 2 support agent for manufacturer-warranty review rather than approving a refund directly. 5. After 90 days, standard refund/return policy no longer applies; direct the customer to the ma"
+  },
+  {
+    "doc": "01_refunds_returns.md",
+    "chunk_id": "01_refunds_returns.md::chunk1",
+    "text": "ranty review rather than approving a refund directly. 5. After 90 days, standard refund/return policy no longer applies; direct the customer to the manufacturer's warranty program if one exists, otherwise inform them no refund is available. 6. A refund must never be promised before the returned item (if physical) has been received and inspected, unless policy line 3 (defect within 30 days) applies."
+  },
+  {
+    "doc": "02_shipping_delays.md",
+    "chunk_id": "02_shipping_delays.md::chunk0",
+    "text": "# Policy: Shipping Delays (POL-SD-02) 1. If a package's estimated delivery date has passed by 3 or fewer calendar days, ask the customer to wait, since minor carrier delays are common. Offer to set up a tracking alert. 2. If the estimated delivery date has passed by more than 3 days but fewer than 10 days, open a carrier trace request and offer the customer a $10 account credit for the inconvenience. 3. If more than 10 days have passed with no tracking movement, treat the package as lost. Offer the customer a full reshipment at no cost, or a full refund, customer's choice. 4. Expedited (paid) shipping that fails to meet its guaranteed delivery window is always refunded for the shipping fee only, regardless of how many days late, as soon as the customer reports it. 5. Weather events or cust"
+  },
+  {
+    "doc": "02_shipping_delays.md",
+    "chunk_id": "02_shipping_delays.md::chunk1",
+    "text": "y window is always refunded for the shipping fee only, regardless of how many days late, as soon as the customer reports it. 5. Weather events or customs holds that are publicly documented (e.g., a named storm) may extend the \"reasonable delay\" window in point 1 from 3 days to 7 days at agent discretion."
+  },
+  {
+    "doc": "03_billing_disputes.md",
+    "chunk_id": "03_billing_disputes.md::chunk0",
+    "text": "# Policy: Billing Disputes (POL-BD-03) 1. A customer disputing a single unrecognized charge under $50 may be refunded directly by any support agent after confirming the customer's identity (name + last 4 digits of payment method on file). 2. Disputes of $50 or more, or disputes involving more than one charge, must be escalated to the Billing Team and cannot be refunded directly by a general support agent. 3. If a customer claims they were charged after cancelling a subscription, first check the cancellation timestamp against the billing cycle date. If cancellation occurred before the renewal date, the charge is refundable directly (any amount). If cancellation occurred after the renewal date, the charge stands and is not refundable, but the agent should confirm the subscription is now full"
+  },
+  {
+    "doc": "03_billing_disputes.md",
+    "chunk_id": "03_billing_disputes.md::chunk1",
+    "text": "). If cancellation occurred after the renewal date, the charge stands and is not refundable, but the agent should confirm the subscription is now fully cancelled going forward. 4. Chargebacks initiated through the customer's bank should never be also refunded by support directly \u2014 doing so causes a double refund. Escalate to Billing to confirm chargeback status first. 5. Duplicate charges (the same amount, same day, same merchant line) may be refunded directly for the duplicate amount only, by any agent, without escalation."
+  },
+  {
+    "doc": "04_account_access.md",
+    "chunk_id": "04_account_access.md::chunk0",
+    "text": "# Policy: Account Access & Security (POL-AA-04) 1. If a customer cannot log in and confirms they forgot their password, direct them to the self-service \"Forgot Password\" flow. Do not reset passwords manually over chat or phone. 2. If a customer reports their account was accessed by someone else without authorization (suspected compromise), immediately lock the account pending identity verification and escalate to the Security team. This is always an escalation, regardless of order/purchase history. 3. Identity verification for account recovery requires at least two of: registered email access, registered phone OTP, last order ID + billing zip code. A single factor is not sufficient. 4. Never read out a customer's full payment card number, password, or security answers over chat or phone, e"
+  },
+  {
+    "doc": "04_account_access.md",
+    "chunk_id": "04_account_access.md::chunk1",
+    "text": " code. A single factor is not sufficient. 4. Never read out a customer's full payment card number, password, or security answers over chat or phone, even to the verified account holder. Confirm only the last 4 digits. 5. Requests to merge two accounts or transfer purchase history between accounts must always be escalated to Tier 2 \u2014 a general agent cannot perform this action."
+  },
+  {
+    "doc": "05_cancellations.md",
+    "chunk_id": "05_cancellations.md::chunk0",
+    "text": "# Policy: Order Cancellations (POL-OC-05) 1. An order can be cancelled free of charge any time before it enters \"Processing\" status. 2. Once an order is in \"Processing\" or \"Shipped\" status, it cannot be cancelled. The customer should instead be directed to the Refunds & Returns policy (POL-RR-01) once the item arrives, or to Shipping Delays (POL-SD-02) if it is delayed/lost. 3. Subscription cancellations take effect at the end of the current billing period unless the customer is within their first 14 days (a \"cooling-off period\"), in which case the subscription is cancelled immediately and a pro-rated refund is issued for the unused portion. 4. Pre-order cancellations are always free until 48 hours before the scheduled release/ship date, after which standard Order Cancellations rules (poin"
+  },
+  {
+    "doc": "05_cancellations.md",
+    "chunk_id": "05_cancellations.md::chunk1",
+    "text": "4. Pre-order cancellations are always free until 48 hours before the scheduled release/ship date, after which standard Order Cancellations rules (points 1-2) apply."
+  },
+  {
+    "doc": "06_warranty_claims.md",
+    "chunk_id": "06_warranty_claims.md::chunk0",
+    "text": "# Policy: Warranty Claims (POL-WC-06) 1. Standard manufacturer warranty covers manufacturing defects for 12 months from delivery. It does not cover accidental damage, water damage, or normal wear and tear. 2. Extended warranty (if purchased separately) covers accidental damage for up to 24 months, with a maximum of 2 claims per item. 3. To open a warranty claim, the customer must provide: order ID, description of the issue, and at least one photo showing the defect. A claim cannot be approved without a photo unless the defect is \"does not power on,\" in which case a photo is not required. 4. Warranty claims for items bought from unauthorized third-party resellers are not covered and must be declined, with the customer directed back to the reseller. 5. If it is unclear whether a defect is a "
+  },
+  {
+    "doc": "06_warranty_claims.md",
+    "chunk_id": "06_warranty_claims.md::chunk1",
+    "text": "hird-party resellers are not covered and must be declined, with the customer directed back to the reseller. 5. If it is unclear whether a defect is a manufacturing fault or accidental damage from the customer's description, do not approve or deny the claim \u2014 escalate to a warranty specialist with the photo evidence attached."
+  },
+  {
+    "doc": "07_escalation_matrix.md",
+    "chunk_id": "07_escalation_matrix.md::chunk0",
+    "text": "# Policy: Escalation Matrix (POL-EM-07) Use this matrix whenever a ticket matches one of the triggers below. When a ticket matches an escalation trigger, the resolution draft must recommend escalation rather than a direct resolution, even if another policy would otherwise allow a direct answer. | Trigger | Escalate to | |------------------------------------------------------|---------------------| | Suspected account compromise / unauthorized access | Security team | | Billing dispute $50+ or multi-charge dispute | Billing team | | Chargeback already filed with bank | Billing team | | Account merge / purchase-history transfer request | Tier 2 support | | Ambiguous warranty claim (defect vs. accidental damage)| Warranty specialist | | Threats of legal action or regulatory complaint | Legal/"
+  },
+  {
+    "doc": "07_escalation_matrix.md",
+    "chunk_id": "07_escalation_matrix.md::chunk1",
+    "text": " support | | Ambiguous warranty claim (defect vs. accidental damage)| Warranty specialist | | Threats of legal action or regulatory complaint | Legal/Compliance team | | Customer requests deletion of all personal data | Data Privacy team | | Any request not covered by an existing policy document | Tier 2 support (human)| General agents (and this assistant) should never attempt to resolve tickets matching these triggers on their own. The correct output in these cases is a routing recommendation, not a final resolution."
+  },
+  {
+    "doc": "08_data_privacy.md",
+    "chunk_id": "08_data_privacy.md::chunk0",
+    "text": "# Policy: Data Privacy Requests (POL-DP-08) 1. Requests to view what personal data is stored about a customer can be acknowledged by a general agent, but the actual data export must be handled by the Data Privacy team within 30 days, per regulatory requirement. 2. Requests to delete all personal data (\"right to be forgotten\") must always be escalated to the Data Privacy team. A general agent must not confirm deletion has occurred. 3. Marketing-email opt-outs are the only privacy-related request a general agent may complete directly and immediately, by updating the customer's communication preferences. 4. Never confirm or deny whether a specific named third party has requested a customer's data \u2014 refer any such question to the Data Privacy team without comment."
+  },
+  {
+    "doc": "09_promo_codes.md",
+    "chunk_id": "09_promo_codes.md::chunk0",
+    "text": "# Policy: Promotional Codes & Discounts (POL-PC-09) 1. A promo code that failed to apply at checkout can be honored after the fact only if the order was placed within 24 hours of the code's expiry window and the customer provides the exact code text. 2. Promo codes cannot be combined with any other discount unless explicitly stated in the code's terms; if a customer claims two codes should have stacked, check the code terms before honoring \u2014 do not assume stacking is allowed. 3. Price-adjustment requests (item went on sale after purchase) are honored only within 7 days of the original purchase, as a one-time account credit for the difference, once per order. 4. Referral credits are issued automatically when a referred friend's first order ships; if a customer reports a missing referral cre"
+  },
+  {
+    "doc": "09_promo_codes.md",
+    "chunk_id": "09_promo_codes.md::chunk1",
+    "text": " once per order. 4. Referral credits are issued automatically when a referred friend's first order ships; if a customer reports a missing referral credit more than 14 days after their friend's order shipped, escalate to the Loyalty team rather than issuing credit directly."
+  },
+  {
+    "doc": "10_address_changes.md",
+    "chunk_id": "10_address_changes.md::chunk0",
+    "text": "# Policy: Shipping Address Changes (POL-AC-10) 1. An address change can be made freely while an order status is \"Pending\" (not yet in Processing). 2. Once an order is \"Processing,\" an address change can only be attempted by submitting an urgent carrier-intercept request; success is not guaranteed and must be communicated to the customer as such, not promised. 3. Once an order is \"Shipped,\" a support agent cannot change the delivery address. If the customer needs to redirect the package, refer them to the carrier's own redirect service if the carrier offers one; otherwise treat the situation using the Shipping Delays policy (POL-SD-02) if the package does not arrive. 4. International address changes that would change the destination country are never allowed after an order is placed, at any"
+  },
+  {
+    "doc": "10_address_changes.md",
+    "chunk_id": "10_address_changes.md::chunk1",
+    "text": "package does not arrive. 4. International address changes that would change the destination country are never allowed after an order is placed, at any status, due to customs/tax implications \u2014 the order must be cancelled (per POL-OC-05, if eligible) and re-placed instead."
+  }
+]
